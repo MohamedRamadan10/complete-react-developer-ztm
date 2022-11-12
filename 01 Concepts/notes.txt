@@ -1,0 +1,10 @@
+React Concepts
+    1. Don't touch the DOM. I'll do it
+    2. Build websites like lego blocks
+    3. Unidirectional data flow (One way data flow)
+    4. UI Library
+
+The job of a react developer
+    1. Decide on Components
+    2. Decide the state and where it lives
+    3. What changes when state changes
