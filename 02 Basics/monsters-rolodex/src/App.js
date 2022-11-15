@@ -1,5 +1,6 @@
 import { Component } from "react";
 import "./App.css";
+import CardList from "./components/card-list/card-list.component";
 
 class App extends Component {
    constructor() {
@@ -12,11 +13,11 @@ class App extends Component {
    }
 
    componentDidMount() {
-      fetch("https://jsonplaceholder.typicode.com/users")
+      fetch("https://dummyjson.com/users")
          .then((res) => res.json())
-         .then((users) =>
+         .then((data) =>
             this.setState(() => {
-               return { monsters: users };
+               return { monsters: data.users };
             })
          );
    }
@@ -34,7 +35,7 @@ class App extends Component {
       const { onSearchChange } = this;
 
       const filteredMonsters = monsters.filter((monster) => {
-         return monster.name.toLocaleLowerCase().includes(searchField);
+         return monster.firstName.toLocaleLowerCase().includes(searchField);
       });
 
       return (
@@ -44,9 +45,7 @@ class App extends Component {
                placeholder="Search monsters..."
                onChange={onSearchChange}
             />
-            {filteredMonsters.map((monster, i) => (
-               <h1 key={i}>{monster.name}</h1>
-            ))}
+            <CardList monsters={filteredMonsters} />
          </div>
       );
    }
