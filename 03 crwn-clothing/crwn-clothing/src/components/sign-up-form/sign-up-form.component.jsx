@@ -1,5 +1,4 @@
-import { useContext, useState } from "react";
-import { UserContext } from "../../contexts/user.context";
+import { useState } from "react";
 import {
    createUserDocFromAuth,
    createUserDocWithEmailAndPassword,
@@ -20,8 +19,6 @@ const SignUpForm = () => {
 
    const { displayName, email, password, confirmPassword } = formFields;
 
-   const { setCurrentUser } = useContext(UserContext);
-
    const resetForm = () => setFormFields(defaultFormFields);
 
    const submitHandler = async (e) => {
@@ -37,7 +34,6 @@ const SignUpForm = () => {
             password
          );
          await createUserDocFromAuth(user, { displayName });
-         setCurrentUser(user);
          resetForm();
       } catch (error) {
          error.code === "auth/email-already-in-use"
