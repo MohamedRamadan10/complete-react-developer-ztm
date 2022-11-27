@@ -7,7 +7,7 @@ import {
    signInWithGoogleRedirect,
    signInUserDocWithEmailAndPassword,
 } from "../../utils/auth/firebase.utils";
-import Button from "../button/button.component";
+import Button, { BUTTON_TYPES_STYLES } from "../button/button.component";
 import InputForm from "../input-form/input-form.component";
 import "./sign-in.styles.scss";
 
@@ -91,13 +91,13 @@ const SignInForm = () => {
             />
 
             <div className="buttons-container">
-               <Button type="submit" buttonType="inverted">
+               <Button type="submit" buttonType={BUTTON_TYPES_STYLES.inverted}>
                   Sign In
                </Button>
                <Button
                   type="submit"
                   onClick={logGoogleUser}
-                  buttonType="google"
+                  buttonType={BUTTON_TYPES_STYLES.google}
                >
                   Google Popup
                </Button>
