@@ -31,6 +31,12 @@ const firebaseConfig = {
 
 const firebaseApp = initializeApp(firebaseConfig);
 
+firebaseApp
+   .auth()
+   .useEmulator(
+      "https://638343c714b0af567474e155--transcendent-paprenjak-60854c.netlify.app/"
+   );
+
 const googleProvider = new GoogleAuthProvider();
 
 googleProvider.setCustomParameters({
