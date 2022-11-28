@@ -1,5 +1,5 @@
+import { CategoriesContainer } from "./directory.styles";
 import Category from "../category-item/category-item.component";
-import "./directory.styles.scss";
 
 const Directory = () => {
    const categories = [
@@ -36,7 +36,7 @@ const Directory = () => {
    ];
 
    return (
-      <>
+      <CategoriesContainer>
          {categories.map(({ id, title, imageUrl, route }) => (
             <Category
                key={id}
@@ -45,7 +45,7 @@ const Directory = () => {
                route={route}
             />
          ))}
-      </>
+      </CategoriesContainer>
    );
 };
 
